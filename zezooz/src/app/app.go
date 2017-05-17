@@ -1,11 +1,15 @@
 package main
 
 import (
-	"coma/comaa"
-	"fmt"
+	"io"
+	"net/http"
 )
 
+func hello(rw http.ResponseWriter, req *http.Request) {
+	io.WriteString(rw, "hello world!")
+}
+
 func main() {
-	fmt.Println("main")
-	comaa.P()
+	http.HandleFunc("/", hello)  //设定访问的路径
+	http.ListenAndServe(":80", nil) //设定端口和handler
 }

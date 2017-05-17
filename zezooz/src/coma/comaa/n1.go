@@ -5,5 +5,5 @@ import (
 )
 
 func P() {
-	fmt.Println("main")
+	fmt.Println("comaa")
 }
